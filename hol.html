@@ -1,0 +1,922 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+    <meta name="generator" content="Hugo 0.101.0">
+    <title></title>
+
+    <link rel="canonical" href="https://getbootstrap.com/docs/5.2/examples/album/">
+    <link rel="icon" href="C:\Users\User\Desktop\Police/AZ.PNG" type="image/x-icon">
+
+    
+
+    
+
+<link href="bootstrap.min.css" rel="stylesheet">
+
+    <style>
+
+      .modal-body  {
+
+        text-align: left;
+      }
+
+      .py-5 {
+        background:    #474A51;
+      }
+
+      .bd-placeholder-img {
+        font-size: 1.125rem;
+        text-anchor: middle;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        user-select: none;
+      }
+
+      @media (min-width: 768px) {
+        .bd-placeholder-img-lg {
+          font-size: 3.5rem;
+        }
+      }
+
+      .b-example-divider {
+        height: 3rem;
+        background-color: rgba(0, 0, 0, .1);
+        border: solid rgba(0, 0, 0, .15);
+        border-width: 1px 0;
+        box-shadow: inset 0 .5em 1.5em rgba(0, 0, 0, .1), inset 0 .125em .5em rgba(0, 0, 0, .15);
+      }
+
+      .b-example-vr {
+        flex-shrink: 0;
+        width: 1.5rem;
+        height: 100vh;
+      }
+
+      .bi {
+        vertical-align: -.125em;
+        fill: currentColor;
+      }
+
+      .nav-scroller {
+        position: relative;
+        z-index: 2;
+        height: 2.75rem;
+        overflow-y: hidden;
+      }
+
+      .nav-scroller .nav {
+        display: flex;
+        flex-wrap: nowrap;
+        padding-bottom: 1rem;
+        margin-top: -1px;
+        overflow-x: auto;
+        text-align: center;
+        white-space: nowrap;
+        -webkit-overflow-scrolling: touch;
+
+
+      }
+
+       .prokrutka {
+        
+        height: 1025px;
+        padding: 5px;
+        margin: 5px auto;
+        text-align: left;
+
+        background: #fff; /* цвет фона, белый #E5E4E2;*/
+        border: 1px solid #C1C1C1; /* размер и цвет границы блока */
+        
+        overflow-y: scroll; /* прокрутка по вертикали */
+        max-width: 1200px;
+        width: 90%;
+      }
+
+      .col-7 {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+      }
+
+      button.btn-warning {
+        font-size: 1.2rem; /* Увеличиваем размер шрифта */
+        padding: 10px 20px; /* Увеличиваем отступы внутри кнопки */
+        width: 60% !important; /* Уменьшаем ширину кнопки до 60% */
+        margin: 10px auto !important; /* Центрируем кнопку и увеличиваем отступы между кнопками */
+        display: block; /* Для корректного центрирования */
+        font-weight: bold; /* Делаем текст жирным */
+        border-radius: 8px; /* Немного скругляем углы */
+      }
+
+      /* Добавляем стиль для контейнера кнопок */
+      .col {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+      }
+      mark{
+        display: inline-block;
+        height: 40%;
+        background-color: yellow;
+        color: black;
+      }
+    </style>
+
+    
+  </head>
+  <body>
+    
+
+<main>
+ <script type="text/javascript">
+  document.addEventListener("DOMContentLoaded", function() { // событие загрузки страницы
+
+    // выбираем на странице все элементы типа textarea и input
+    document.querySelectorAll('textarea').forEach(function(e) {
+        // если данные значения уже записаны в sessionStorage, то вставляем их в поля формы
+        // путём этого мы как раз берём данные из памяти браузера, если страница была случайно перезагружена
+        if(e.value === '') e.value = window.sessionStorage.getItem(e.name, e.value);
+        // на событие ввода данных (включая вставку с помощью мыши) вешаем обработчик
+        e.addEventListener('input', function() {
+            // и записываем в sessionStorage данные, в качестве имени используя атрибут name поля элемента ввода
+            window.sessionStorage.setItem(e.name, e.value);
+        })
+    })
+
+}); 
+   
+ </script> 
+
+  <section class="py-5 text-center container">
+    <div class="row">
+
+      
+
+        <div class="col">
+
+         <!-- ... existing code ... -->
+<div class="col">
+    <button style="background: lightblue;" type="button" class="m-1 w-100 btn btn-sm btn-warning" data-bs-toggle="modal" data-bs-target="#borbaModal">БОРЬБА</button>
+    <button style="background: lightblue;" type="button" class="m-1 w-100 btn btn-sm btn-warning" data-bs-toggle="modal" data-bs-target="#dopInfoModal">ДОП.ИНФА</button>
+    
+    <!-- <button style="background: lightblue;" type="button" class="m-1 w-100 btn btn-sm btn-warning" data-bs-toggle="modal" data-bs-target="#modal1">Почему смс из Госуслуг?</button>
+    <button style="background: lightblue;" type="button" class="m-1 w-100 btn btn-sm btn-warning" data-bs-toggle="modal" data-bs-target="#modal2">Никому не сообщайте смс</button>
+    <button style="background: lightblue;" type="button" class="m-1 w-100 btn btn-sm btn-warning" data-bs-toggle="modal" data-bs-target="#modal3">А разве у сим карты есть строк действия?</button>
+    <button style="background: lightblue;" type="button" class="m-1 w-100 btn btn-sm btn-warning" data-bs-toggle="modal" data-bs-target="#modal4">После приветствия говорит, что занят</button>
+    <button style="background: lightblue;" type="button" class="m-1 w-100 btn btn-sm btn-warning" data-bs-toggle="modal" data-bs-target="#modal5">Сим карта новая, как мог истечь срок действия договора?</button>
+    <button style="background: lightblue;" type="button" class="m-1 w-100 btn btn-sm btn-warning" data-bs-toggle="modal" data-bs-target="#modal6">У меня этот номер больше 3х лет и не разу такого не было</button>
+    <button style="background: lightblue;" type="button" class="m-1 w-100 btn btn-sm btn-warning" data-bs-toggle="modal" data-bs-target="#modal7">Я только пополнил счет</button>
+    <button style="background: lightblue;" type="button" class="m-1 w-100 btn btn-sm btn-warning" data-bs-toggle="modal" data-bs-target="#modal8">Я недавно был в салоне сотовой связи и продлил все</button>
+    <button style="background: lightblue;" type="button" class="m-1 w-100 btn btn-sm btn-warning" data-bs-toggle="modal" data-bs-target="#modal9">Не нужно мне ничего продлевать</button>
+    <button style="background: lightblue;" type="button" class="m-1 w-100 btn btn-sm btn-warning" data-bs-toggle="modal" data-bs-target="#modal10">Мне не приходило никакое СМС</button>
+    <button style="background: lightblue;" type="button" class="m-1 w-100 btn btn-sm btn-warning" data-bs-toggle="modal" data-bs-target="#modal11">Направьте мне СМС повторно</button>
+    <button style="background: lightblue;" type="button" class="m-1 w-100 btn btn-sm btn-warning" data-bs-toggle="modal" data-bs-target="#modal12">Я сам продлю через ЛК</button>
+    <button style="background: lightblue;" type="button" class="m-1 w-100 btn btn-sm btn-warning" data-bs-toggle="modal" data-bs-target="#modal13">Я схожу в салон сотовой связи и там все продлю</button>
+    <button style="background: lightblue;" type="button" class="m-1 w-100 btn btn-sm btn-warning" data-bs-toggle="modal" data-bs-target="#modal14">Зачем Вам мой документ удостоверяющий личность</button>
+    <button style="background: lightblue;" type="button" class="m-1 w-100 btn btn-sm btn-warning" data-bs-toggle="modal" data-bs-target="#modal15">Почему именно так?</button>
+    <button style="background: lightblue;" type="button" class="m-1 w-100 btn btn-sm btn-warning" data-bs-toggle="modal" data-bs-target="#modal16">Я Вам не верю</button>
+    <button style="background: lightblue;" type="button" class="m-1 w-100 btn btn-sm btn-warning" data-bs-toggle="modal" data-bs-target="#modal17">Вы не мошенники?</button>
+    <button style="background: lightblue;" type="button" class="m-1 w-100 btn btn-sm btn-warning" data-bs-toggle="modal" data-bs-target="#modal18">Почему истек срок?</button>
+    <button style="background: lightblue;" type="button" class="m-1 w-100 btn btn-sm btn-warning" data-bs-toggle="modal" data-bs-target="#modal19">Что еще за договор?</button>
+    <button style="background: lightblue;" type="button" class="m-1 w-100 btn btn-sm btn-warning" data-bs-toggle="modal" data-bs-target="#modal20">На каком основании Вы блокируете стм-карту?</button>
+    <button style="background: lightblue;" type="button" class="m-1 w-100 btn btn-sm btn-warning" data-bs-toggle="modal" data-bs-target="#modal21">Я не давала согласие чтоб мои данные подтягивали</button>
+    <button style="background: lightblue;" type="button" class="m-1 w-100 btn btn-sm btn-warning" data-bs-toggle="modal" data-bs-target="#modal22">Почему вы звоните с номера другого оператора?</button>
+    <button style="background: lightblue;" type="button" class="m-1 w-100 btn btn-sm btn-warning" data-bs-toggle="modal" data-bs-target="#modal23">Скажите мне мой тариф</button>
+    <button style="background: lightblue;" type="button" class="m-1 w-100 btn btn-sm btn-warning" data-bs-toggle="modal" data-bs-target="#modal24">Назовите мне мои данные</button>
+    <button style="background: lightblue;" type="button" class="m-1 w-100 btn btn-sm btn-warning" data-bs-toggle="modal" data-bs-target="#modal25">Номер не зарегистрирован на меня</button>
+    <button style="background: lightblue;" type="button" class="m-1 w-100 btn btn-sm btn-warning" data-bs-toggle="modal" data-bs-target="#modal26">Почему по телефону?</button>
+    <button style="background: lightblue;" type="button" class="m-1 w-100 btn btn-sm btn-warning" data-bs-toggle="modal" data-bs-target="#modal27">Если бы не взял трубку что заблокировали?</button>
+    <button style="background: lightblue;" type="button" class="m-1 w-100 btn btn-sm btn-warning" data-bs-toggle="modal" data-bs-target="#modal28">Я хочу перейти на другого оператора</button>
+    <button style="background: lightblue;" type="button" class="m-1 w-100 btn btn-sm btn-warning" data-bs-toggle="modal" data-bs-target="#modal29">У меня 2 сим блокируйте</button>
+    <button style="background: lightblue;" type="button" class="m-1 w-100 btn btn-sm btn-warning" data-bs-toggle="modal" data-bs-target="#modal30">Я не заключал договор и не подписывал</button>
+    <button style="background: lightblue;" type="button" class="m-1 w-100 btn btn-sm btn-warning" data-bs-toggle="modal" data-bs-target="#modal31">Что указано в договоре?</button>
+    <button style="background: lightblue;" type="button" class="m-1 w-100 btn btn-sm btn-warning" data-bs-toggle="modal" data-bs-target="#modal32">От какого числа договор?</button>
+    <button style="background: lightblue;" type="button" class="m-1 w-100 btn btn-sm btn-warning" data-bs-toggle="modal" data-bs-target="#modal33">Почему нет оповещения в ЛК?</button>
+    <button style="background: lightblue;" type="button" class="m-1 w-100 btn btn-sm btn-warning" data-bs-toggle="modal" data-bs-target="#modal34">Что мне сейчас делать?</button>
+    <button style="background: lightblue;" type="button" class="m-1 w-100 btn btn-sm btn-warning" data-bs-toggle="modal" data-bs-target="#modal35">Это какой-то бред</button>
+    <button style="background: lightblue;" type="button" class="m-1 w-100 btn btn-sm btn-warning" data-bs-toggle="modal" data-bs-target="#modal36">Как я могу быть уверенным что вы оператор?</button>
+    <button style="background: lightblue;" type="button" class="m-1 w-100 btn btn-sm btn-warning" data-bs-toggle="modal" data-bs-target="#modal37">Давайте позже я занят</button>
+    <button style="background: lightblue;" type="button" class="m-1 w-100 btn btn-sm btn-warning" data-bs-toggle="modal" data-bs-target="#modal38">Я вчера был в салоне почему меня не проинформировали об этом</button>
+    <button style="background: lightblue;" type="button" class="m-1 w-100 btn btn-sm btn-warning" data-bs-toggle="modal" data-bs-target="#modal39">Это корпоративная сим карта</button>
+    <button style="background: lightblue;" type="button" class="m-1 w-100 btn btn-sm btn-warning" data-bs-toggle="modal" data-bs-target="#modal40">Вы что не видите пользуюсь ли я ЛК</button>
+</div> -->
+
+<div class="modal fade bd-example-modal-lg" id="borbaModal" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+     <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">БОРЬБА</h5>
+        <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <iframe src="borba.html" style="width:100%; height:800px; border:none;"></iframe>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade bd-example-modal-lg" id="dopInfoModal" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+     <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">ДОП.ИНФА</h5>
+        <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <iframe src="dop_info.html" style="width:100%; height:500px; border:none;"></iframe>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+        </div>
+        <div class="col-7">
+     
+     <div> <!-- <button type="button" class="w-100 btn btn-lg btn btn-primary" data-bs-toggle="modal" data-bs-target="#info.bd-example-modal-lg">Информация о клиенте (ФИО, номер телефона, электронная почта, РОСКОМНАДЗОР есть или нет).</button> --></div>
+
+     <div class="modal fade bd-example-modal-lg" id="info" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+     <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Информация о клиенте (ФИО, номер телефона, электронная почта, РОСКОМНАДЗОР есть или нет).</h5>
+        <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <p> <!-- <textarea class="col-12"  name="comment" cols="100" rows="100" style="font-size: 18px;"></textarea> --></p>
+	</div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+
+        
+        
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Modal Информация о клиенте-->
+
+
+  <div> <p> <!-- <textarea class="col-12"  name="comment" cols="100" rows="10" style="font-size: 18px;"></textarea> --></p></div>
+  
+  <form action="HotCB\HotCB.html" method="post">    
+    <div>        
+      <!-- <button class="w-100 btn btn-lg btn btn-danger"></button> -->
+    </div>
+  </form>
+
+  <div class="prokrutka" role="document">
+    
+    
+      
+        <!-- <h5 class="modal-title">Modal title</h5> -->
+        
+        <!-- <h3 class="fw-bold mb-0">СПИЧ</h3>-->
+        <br>
+        <div class="accordion" id="planAccordion">
+          <div class="accordion-item">
+            <h2 class="accordion-header" id="planHeading">
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#planCollapse" aria-expanded="false" aria-controls="planCollapse">
+                ПЛАН
+              </button>
+            </h2>
+            <div id="planCollapse" class="accordion-collapse collapse" aria-labelledby="planHeading" data-bs-parent="#planAccordion">
+              <div class="accordion-body">
+-
+              </div>
+            </div>
+          </div>
+        </div>
+        <br>
+        <h6 style="text-align: left;">
+            <br>
+            Здравствуйте (И.О)  меня зовут (Павел Сергеевич)  являюсь сотрудником  Федерального фонда обязательного медицинского страхования 
+            <br>
+            <br>
+            <mark style="background-color: red;">-Ответ лоха</mark>
+            <br>
+            <br>
+            Дело в том что ваш обновленный страховой полис уже изготовлен. Подскажите где вам будет удобно его забрать? *Поликлиника? Курьерской доставкой?  в Регистратуре? или же ближайшем МФЦ?*  
+            <br>
+            <br>
+            <mark style="background-color: yellow;">(ЕСЛИ ВЫБРАЛ КУРЬЕРА)</mark> - Хорошо. Тогда в течении сегодняшнего дня с вами свяжется курьер   вы сможете договорится в какой день и в какое  время вам будет удобно доставить страховой полис.
+            <br>
+            <br>
+            <mark style="background-color: aqua;">(ЕСЛИ ВЫБРАЛ ПОЛИКЛИНКУ)</mark> - Хорошо, тогда в течении трёх дней он будет доставлен в вашу поликлинику, и уже через три дня приходите для получения.
+            <br>
+            <br>
+            <mark style="background-color: red;">-Ответ лоха</mark>
+            <br>
+            <br>
+            Для получения необходимо будет сдать Ваш старый полис, Вы его не теряли?  
+            <br>
+            <br>
+            <mark style="background-color: red;">-Ответ лоха</mark>
+            <br>
+            <br>
+            Также при себе нужно будет иметь документ к которому я привязала ваш талончик(электронную очередь )и номер электронной очереди на получение.
+            <br>
+            <br>
+            Поэтому уточните к какому документу я могу вам привязать талончик?( паспорт, снилс, инн)
+            <br>
+            <br>
+            <mark style="background-color: red;">-Ответ лоха</mark>       
+            <br>
+            <br>
+            Запишите номер талончика (9213005)
+            <br>
+            <br>  
+            Посторонним номер талончика не называйте, вы получаете ваш медицинский полис, потому что при посторонних если его назвать, кто то получит ваш медицинский полис, по этому полису предусмотренны бесплатные медикаменты, так как были случаи когда получали полис другого человека, получали бесплатные медикаменты и перепродавали .
+            <br>
+            <br>
+            Вам предусмотренны медикаменты, противовирусные , гипоаллергенные , обезболивающие, для понижения артериального давления , жаропонижающие, противоаллергенные . Но не все аптеки по ОМС будут выдавать препараты бесплатно,будет указан перечень аптек и их адреса,в листе здоровье есть ли какие-то вопросы? 
+            <br>
+            <br>
+            <mark style="background-color: red;">-Ответ лоха</mark>
+            <br>
+            <br>
+            После получения физического полиса вы сможете зарегистрировать его в гос услугах! И тогда бумажный полис носить с собой не прийдётся.
+            <br>
+            <br>
+            <mark style="background-color: yellow;">ПРИМЕЧАНИЕ:</mark>
+            <br>
+            Сейчас вы подтверждаете отправку вашего полиса(куда сказал лох), необходимо сказать, да подтверждаю.
+        </h6>
+        
+      
+
+      
+    
+  </div>
+  
+  
+
+
+        </div>
+        <div class="col">
+
+          <!-- <button style="background: lightblue ;type="button" class="m-1 w-100 btn btn-sm btn-warning" data-bs-toggle="modal" data-bs-target="#redostavlyauNedostovernuyuInfu.bd-example-modal-lg">Терминология</button> -->
+      
+           
+
+<div class="modal fade bd-example-modal-lg" id="redostavlyauNedostovernuyuInfu" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+     <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Терминология</h5>
+        <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <h5>         
+        Разница между тарифом и договором:
+		<br>
+		<br>
+        Тариф — это то, чем вы пользуетесь: звонки, интернет, смс, сотовая связь.
+        <br>
+		<br>
+        Договор - возможность пользоваться номером телефона на территории страны, а также за пределами неё, вы его заключали при покупке сим карты
+        <br>
+		<br>
+        Роскомнадзор - это Федеральная служба по надзору в сфере связи, информационных технологий и массовых коммуникаций.
+        <br>
+		<br>
+        Ростелеком - телекоммуникационная компания Российская телекоммуникационная компания, предоставляющая услуги связи.
+        <br>
+		<br>
+        СНИЛС – это страховой номер индивидуального лицевого счёта.Номер состоит из 11 цифр и присваивается один раз. Он не меняется даже при утере документов или смене ФИО.
+        <br>
+		<br>
+        ИНН — это идентификационный номер налогоплательщика это цифровой код, упорядочивающий учёт налогоплательщиков в Российской Федерации. состоит из 12 цифр.
+        <br>
+		<br>
+        Госуслуги - (единый портал государственных и муниципальных услуг) это справочно-информационный сервис. На этом сайте получают справки и выписки, оплачивают штрафы, а также записываются в различные ведомства.
+		<br>
+		<br>
+		Паспорт - 10 цифр 
+        *3и4 цифра, это год выдачи (возможна разбежность в 1-3 года). 
+        Например, паспорт 9020 338476 выдан в 2020 году, 9204 432409 выдан в 2004 году
+        <br>
+		<br>
+        </h5>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        
+      </div>
+    </div>
+  </div>
+</div>
+          <!-- <button style="background: lightblue ; type="button" class="m-1 w-100 btn btn-sm btn-warning" data-bs-toggle="modal" data-bs-target="#tinkoffSait.bd-example-modal-lg">ЧТО МЫ ДЕЛАЕМ ПОСЛЕ ВЗЛОМА ГОСУСЛУГ!</button> -->
+      
+           
+
+<div class="modal fade bd-example-modal-lg" id="tinkoffSait" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+     <div class="modal-content">
+      <div class="modal-header">
+        <!-- <h5 class="modal-title" id="exampleModalLabel">ЧТО МЫ ДЕЛАЕМ ПОСЛЕ ВЗЛОМА ГОСУСЛУГ!</h5> -->
+        <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <h5>         
+        -После взлома копируем мобильное устройство человека, выходим с устройств, потом завершаем все действия в системе. Ставим TOTP, ставим контрольный вопрос.
+        <br>
+        - Отправляет в ТГ инфу: ФИО, номер, дата рождения и если есть почта лоха и время взлома.
+        <br> 
+        - Заполняем таблицу дальше (время взлома, РОСКОМНАДЗОР(робот) есть или нет.
+        <br>  
+		<br> 
+		- НЕ ВЫХОДИМ ИЗ ГОСУСЛУГ ПОКА ГОСОВИК НЕ ЗАЙДЕТ В ГОСЫ.
+		<br> 
+        </h5>
+      </div>
+      <div class="modal-footer">
+
+
+
+
+
+        </h5>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        
+      </div>
+    </div>
+  </div>
+</div> 
+           
+
+<div class="modal fade bd-example-modal-lg" id="dolgiyRazgovor" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+     <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel"></h5>
+        <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <h5>         
+       
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        
+      </div>
+    </div>
+  </div>
+</div>
+
+      
+           
+
+<div class="modal fade bd-example-modal-lg" id="pochemuNeUdaliteSchet" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+     <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel"></h5>
+        <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <h5>         
+          
+        </h5>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        
+      </div>
+    </div>
+  </div>
+</div>
+
+      
+           
+
+<div class="modal fade bd-example-modal-lg" id="dannieProdanyEtoNeYa" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+     <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel"></h5>
+        <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <h5>         
+          
+        </h5>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        
+      </div>
+    </div>
+  </div>
+</div>
+
+      
+           
+
+<div class="modal fade bd-example-modal-lg" id="zachemOperaciiPoProguktam" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+     <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel"></h5>
+        <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <h5>         
+          
+        </h5>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        
+      </div>
+    </div>
+  </div>
+</div>
+
+      
+           
+
+<div class="modal fade bd-example-modal-lg" id="tiMoshennik" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+     <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel"></h5>
+        <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <h5>         
+          
+        </h5>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        
+      </div>
+    </div>
+  </div>
+</div>
+
+      
+           
+
+<div class="modal fade bd-example-modal-lg" id="davnoNapraviliZayavy" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+     <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel"></h5>
+        <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <h5>         
+          
+        </h5>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        
+      </div>
+    </div>
+  </div>
+</div>
+
+      
+           
+
+<div class="modal fade bd-example-modal-lg" id="gdeInfa" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+     <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel"></h5>
+        <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <h5>         
+          
+        </h5>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        
+      </div>
+    </div>
+  </div>
+</div>
+
+      
+           
+
+<div class="modal fade bd-example-modal-lg" id="zamenaPasporta" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+     <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel"></h5>
+        <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <h5>         
+          
+        </h5>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        
+      </div>
+    </div>
+  </div>
+</div>
+
+      
+           
+
+<div class="modal fade bd-example-modal-lg" id="zachemPerevipuskatEsliPass" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+     <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel"></h5>
+        <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <h5>         
+          
+        </h5>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        
+      </div>
+    </div>
+  </div>
+</div>
+
+      
+           
+
+<div class="modal fade bd-example-modal-lg" id="zayavlenieNaNeVidachy" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+     <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel"></h5>
+        <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <h5>         
+         
+        </h5>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        
+      </div>
+    </div>
+  </div>
+</div>
+
+      
+           
+
+<div class="modal fade bd-example-modal-lg" id="sovmestniySchet" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+     <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel"></h5>
+        <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <h5> 
+        </h5>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        
+      </div>
+    </div>
+  </div>
+</div>
+
+      
+           
+
+<div class="modal fade bd-example-modal-lg" id="netSoglasiaZameni" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+     <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel"></h5>
+        <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <h5>         
+         
+        </h5>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        
+      </div>
+    </div>
+  </div>
+</div>
+
+      
+           
+
+<div class="modal fade bd-example-modal-lg" id="yaBilaVCb" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+     <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel"></h5>
+        <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <h5>         
+          
+        </h5>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        
+      </div>
+    </div>
+  </div>
+</div>
+
+      
+           
+
+<div class="modal fade bd-example-modal-lg" id="infuProverit" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+     <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel"></h5>
+        <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <h5>         
+        
+        </h5>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        
+      </div>
+    </div>
+  </div>
+</div>
+
+      
+           
+
+<div class="modal fade bd-example-modal-lg" id="neVideliNet100" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+     <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel"></h5>
+        <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <h5>         
+         
+        </h5>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        
+      </div>
+    </div>
+  </div>
+</div>
+
+      
+           
+
+<div class="modal fade bd-example-modal-lg" id="doverie" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+     <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel"></h5>
+        <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <h5>         
+         
+        </h5>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        
+      </div>
+    </div>
+  </div>
+</div>
+
+
+      
+           
+
+<div class="modal fade bd-example-modal-lg" id="raschetPotencialaCB" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+     <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel"></h5>
+        <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <h5>         
+         
+        </h5>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        
+      </div>
+    </div>
+  </div>
+</div>
+
+
+          
+
+        </div>
+    </div>
+
+  </section>
+
+ 
+
+
+
+
+
+
+
+
+    
+    </div>
+  </div>
+
+</main>
+
+
+
+
+    <script src="bootstrap.bundle.min.js"></script>
+
+      
+  </body>
+</html>

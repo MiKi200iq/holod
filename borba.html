@@ -1,0 +1,515 @@
+    <!DOCTYPE html>
+    <html lang="ru">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>БОРЬБА</title>
+        <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+        <style>
+            body {
+                font-family: 'Roboto', sans-serif;
+                font-size: 1.2em;
+                font-weight: bold;
+            }
+            .grid-container {
+                display: grid;
+                grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+                gap: 10px;
+                padding: 10px;
+            }
+            button {
+                background: linear-gradient(135deg, #2d5c92, #1d92b9); /* Синий и серый градиент */
+                color: white;
+                border: none;
+                padding: 10px;
+                border-radius: 5px;
+                box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+                cursor: pointer;
+                transition: background 0.3s, transform 0.3s;
+                width: 100%;
+                text-align: left;
+            }
+            button:hover {
+                background: linear-gradient(135deg, #7b8d93, #4a90e2); /* Обратный градиент при наведении */
+                transform: translateY(-2px);
+            }
+            button:active {
+                transform: translateY(0);
+                box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            }
+        </style>
+    </head>
+    <body>
+        <h1>БОРЬБА</h1>
+        <div class="grid-container">
+            <button type="button" data-toggle="modal" data-target="#modal1">Можно получить полис в МФЦ?</button>
+            <button type="button" data-toggle="modal" data-target="#modal2">Я не хочу называть док!</button>
+            <button type="button" data-toggle="modal" data-target="#modal3">Зачем это, у меня есть полис</button>
+            <button type="button" data-toggle="modal" data-target="#modal4">Зачем вам мой документ?</button>
+            <button type="button" data-toggle="modal" data-target="#modal5">Может вы мошенник </button>
+            <button type="button" data-toggle="modal" data-target="#modal6">Как выглядит страховой полис?</button>
+            <button type="button" data-toggle="modal" data-target="#modal7">Я все предоставлю курьеру (если отказывается давать документ)</button>
+            <button type="button" data-toggle="modal" data-target="#modal8">Письмо не получали (если переехали)</button>
+            <button type="button" data-toggle="modal" data-target="#modal9">Письмо не получали</button>
+            <button type="button" data-toggle="modal" data-target="#modal10">Я лучше в регистратуру схожу и все сделаю</button>
+            <button type="button" data-toggle="modal" data-target="#modal11">Я потерял свой полис</button>
+            <button type="button" data-toggle="modal" data-target="#modal12">У меня полис бессрочный</button>
+            <button type="button" data-toggle="modal" data-target="#modal13">Я все сделаю через Госы</button>
+            <button type="button" data-toggle="modal" data-target="#modal14">У меня нет полиса</button>
+            <button type="button" data-toggle="modal" data-target="#modal15">Назовите мне мой номер полиса</button>
+            <button type="button" data-toggle="modal" data-target="#modal16">Мне вчера звонили и уже дали номер талона и закрепили за документом </button>
+            <button type="button" data-toggle="modal" data-target="#modal17">Прошлый полюс я получал заказным письмем , почему сейчас так ? </button>
+            <button type="button" data-toggle="modal" data-target="#modal18">У меня уже есть полюс с кьюар кодом </button>
+            <button type="button" data-toggle="modal" data-target="#modal19">Почему через вотсап?</button>
+            <button type="button" data-toggle="modal" data-target="#modal20">Я уже забрал свой полюс</button>
+            <button type="button" data-toggle="modal" data-target="#modal21">В какой я поликлинике ? </button>
+            <button type="button" data-toggle="modal" data-target="#modal22">С какой организации я обслуживаюсь ? </button>
+            <button type="button" data-toggle="modal" data-target="#modal23">Я работаю в больнице почему раньше об этом не слышала ?</button>
+            <button type="button" data-toggle="modal" data-target="#modal24">Я схожу в больницу уточню инфу </button>
+            <button type="button" data-toggle="modal" data-target="#modal25">если назвала не правильное ФИО </button>
+            <button type="button" data-toggle="modal" data-target="#modal26">У меня частная клиника </button>
+            <button type="button" data-toggle="modal" data-target="#modal27">мне полис передает страховая компания моя , а не Федеральный фонд</button>
+        </div>
+
+        <!-- Модальные окна -->
+        <div class="modal fade" id="modal1" tabindex="-1" role="dialog" aria-labelledby="modal1Label" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="modal1Label">Можно получить полис  в МФЦ ?</h5>
+                    </div>
+                    <div class="modal-body">
+                        МФЦ мы не направляем . Мы направляет только в поликлинике либо курьером. 
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Закрыть</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="modal fade" id="modal2" tabindex="-1" role="dialog" aria-labelledby="modal2Label" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="modal2Label">Я не хочу называть док!</h5>
+                    </div>
+                    <div class="modal-body">
+                        у меня есть ваша информация , мне лишь необходимо закрепить за вашим документом талон что бы вам могли выдать ваш новый полис .
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Закрыть</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="modal fade" id="modal3" tabindex="-1" role="dialog" aria-labelledby="modal3Label" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="modal3Label">Зачем это, у меня есть полис</h5>
+                    </div>
+                    <div class="modal-body">
+                        С 20 января ваш старый полис будет недействителен из-за того что происходит полная замена оборудования.
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Закрыть</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="modal fade" id="modal4" tabindex="-1" role="dialog" aria-labelledby="modal4Label" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="modal4Label">Зачем вам мой документ?</h5>
+                    </div>
+                    <div class="modal-body">
+                        Я закрепляю ваш документ за вашим талончиком и вам необходимо будет предоставить документ курьеру который закрепили.
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Закрыть</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="modal fade" id="modal5" tabindex="-1" role="dialog" aria-labelledby="modal5Label" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="modal5Label">Может вы мошенник</h5>
+                    </div>
+                    <div class="modal-body">
+                        мошенники не запрашивают ваш СНИЛС  , с номером СНИЛС можно записать к вашему врачу , но мне необходимо закрепить ваш талончик.
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Закрыть</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="modal fade" id="modal6" tabindex="-1" role="dialog" aria-labelledby="modal6Label" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="modal6Label">Как выглядит страховой полис ?</h5>
+                    </div>
+                    <div class="modal-body">
+                        зеленная карточка
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Закрыть</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="modal fade" id="modal7" tabindex="-1" role="dialog" aria-labelledby="modal7Label" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="modal7Label">Я все предоставлю курьеру (если отказывается давать документ)</h5>
+                    </div>
+                    <div class="modal-body">
+                        он не приедет  потому что номер талона который вы записали не активировался.
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Закрыть</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="modal fade" id="modal8" tabindex="-1" role="dialog" aria-labelledby="modal8Label" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="modal8Label">Письмо не получали (если переехали)</h5>
+                    </div>
+                    <div class="modal-body">
+                        Мы вам на старый адресс отправляли письмо
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Закрыть</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="modal fade" id="modal9" tabindex="-1" role="dialog" aria-labelledby="modal9Label" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="modal9Label">Письмо не получали</h5>
+                    </div>
+                    <div class="modal-body">
+                        - а вы на почтовом ящике  проверяли ? 
+                        -да 
+                        -значит почта не доставила , указываю сейчас в системе что это не ваша вина .
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Закрыть</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="modal fade" id="modal10" tabindex="-1" role="dialog" aria-labelledby="modal10Label" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="modal10Label">Я лучше в регистратуру схожу и все сделаю</h5>
+                    </div>
+                    <div class="modal-body">
+                        в регистратуре не предоставляем талончики исключительно в телефонном формате так как большие очереди и мы не сможем вам предоставить талончик
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Закрыть</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="modal fade" id="modal11" tabindex="-1" role="dialog" aria-labelledby="modal11Label" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="modal11Label">Я потерял свой полис</h5>
+                    </div>
+                    <div class="modal-body">
+                        в любом случае у вас он есть в електронном формате .
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Закрыть</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="modal fade" id="modal12" tabindex="-1" role="dialog" aria-labelledby="modal12Label" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="modal12Label">У меня полис бессрочный</h5>
+                    </div>
+                    <div class="modal-body">
+                        да все верно полис у вас бессрочный , но сейчас переводим полис на новый формат в обязательном порядке. 
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Закрыть</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="modal fade" id="modal13" tabindex="-1" role="dialog" aria-labelledby="modal13Label" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="modal13Label">Я все сделаю через Госы</h5>
+                    </div>
+                    <div class="modal-body">
+                        Госуслуги не формируют и не редактируют данные полиса ОМС. Вся информация поступает от нашего ведомства 
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Закрыть</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="modal fade" id="modal14" tabindex="-1" role="dialog" aria-labelledby="modal14Label" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="modal14Label">У меня нет полиса</h5>
+                    </div>
+                    <div class="modal-body">
+                        Полис есть у каждого гражданина нашей страны , будь он в физическом виде будь он в електронном
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Закрыть</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="modal fade" id="modal15" tabindex="-1" role="dialog" aria-labelledby="modal15Label" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="modal15Label">Назовите мне мой номер полиса</h5>
+                    </div>
+                    <div class="modal-body">
+                        в телефоном режиме я не имею права называть номер полиса ОМС .
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Закрыть</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="modal fade" id="modal16" tabindex="-1" role="dialog" aria-labelledby="modal16Label" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="modal16Label">Мне вчера звонили и уже дали номер талона и закрепили за документом</h5>
+                    </div>
+                    <div class="modal-body">
+                        сотрудник не закрепил за вами скорее всего, по этому продиктуйте номер талончика и документ который предоставляли
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Закрыть</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="modal fade" id="modal17" tabindex="-1" role="dialog" aria-labelledby="modal17Label" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="modal17Label">Прошлый полюс я получал заказным письмем, почему сейчас так?</h5>
+                    </div>
+                    <div class="modal-body">
+                        мы вам направляли письмо ответа не получили по этому связываемся в телефонном режиме.
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Закрыть</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="modal fade" id="modal18" tabindex="-1" role="dialog" aria-labelledby="modal18Label" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="modal18Label">У меня уже есть полюс с кьюар кодом</h5>
+                    </div>
+                    <div class="modal-body">
+                        у вас полис со штриходом, а мы меняем полис с кьюар кодом.
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Закрыть</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="modal fade" id="modal19" tabindex="-1" role="dialog" aria-labelledby="modal19Label" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="modal19Label">Почему через вотсап?</h5>
+                    </div>
+                    <div class="modal-body">
+                        1. Мы ранее с вами связывались через сотовую связь, ответа не последовало поэтому и связываемся через вотсап.
+                        2. Для того что бы вам сразу направить фото вашего талончика который предоставите
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Закрыть</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="modal fade" id="modal20" tabindex="-1" role="dialog" aria-labelledby="modal20Label" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="modal20Label">Я уже забрал свой полюс</h5>
+                    </div>
+                    <div class="modal-body">
+                        сотрудник не зафиксировал что вы его забрали, запишите новый талончик и активируем что бы вы повторно подошли и перепровели информацию.
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Закрыть</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="modal fade" id="modal21" tabindex="-1" role="dialog" aria-labelledby="modal21Label" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="modal21Label">В какой я поликлинике?</h5>
+                    </div>
+                    <div class="modal-body">
+                        я данной информацией не владею, я занимаюсь исключительно для того что бы выдать вам талончик и активировать его за вами.
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Закрыть</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="modal fade" id="modal22" tabindex="-1" role="dialog" aria-labelledby="modal22Label" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="modal22Label">С какой организации я обслуживаюсь?</h5>
+                    </div>
+                    <div class="modal-body">
+                        я данной информацией не владею, я занимаюсь исключительно для того что бы выдать вам талончик и активировать его за вами.
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Закрыть</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="modal fade" id="modal23" tabindex="-1" role="dialog" aria-labelledby="modal23Label" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="modal23Label">Я работаю в больнице почему раньше об этом не слышала?</h5>
+                    </div>
+                    <div class="modal-body">
+                        ну потому что вы этим не занимаетесь по этому данной информацией не владеете.
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Закрыть</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="modal fade" id="modal24" tabindex="-1" role="dialog" aria-labelledby="modal24Label" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="modal24Label">Я схожу в больницу уточню инфу</h5>
+                    </div>
+                    <div class="modal-body">
+                        вам предоставить информацию о полисе не смогут без талончика
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Закрыть</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="modal fade" id="modal25" tabindex="-1" role="dialog" aria-labelledby="modal25Label" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="modal25Label">если назвала не правильное ФИО</h5>
+                    </div>
+                    <div class="modal-body">
+                        прошу прощения клиентов много не туда посмотрел, по этому уточните вашего ФИО
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Закрыть</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="modal fade" id="modal26" tabindex="-1" role="dialog" aria-labelledby="modal26Label" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="modal26Label">У меня частная клиника</h5>
+                    </div>
+                    <div class="modal-body">
+                        Это государственное страхование является обязательным для всех лиц, а частное страхование является дополнительным
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Закрыть</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="modal fade" id="modal27" tabindex="-1" role="dialog" aria-labelledby="modal27Label" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="modal27Label">мне полис передает страховая компания моя, а не Федеральный фонд</h5>
+                    </div>
+                    <div class="modal-body">
+                        Федеральный фонд является единым органом, который контролирует все страховые компании
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Закрыть</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Подключение Bootstrap JS и jQuery -->
+        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    </body>
+    </html>
